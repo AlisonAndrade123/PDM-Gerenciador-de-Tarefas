@@ -33,7 +33,6 @@ export default function Index() {
     setModalVisible(true);
   };
 
-  // Lógica de Ordenação
   const listaOrdenada = [...lista].sort((a, b) => {
     if (a.prazo !== b.prazo) return a.prazo.localeCompare(b.prazo);
     return a.prioridade - b.prioridade;

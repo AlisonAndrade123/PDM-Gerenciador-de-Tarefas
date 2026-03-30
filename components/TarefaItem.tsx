@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Tarefa } from "../types";
-// Usaremos MaterialCommunityIcons para tudo para manter o mesmo estilo de traço
 import { MaterialCommunityIcons } from "@expo/vector-icons"; 
 
 type Props = {
@@ -11,13 +10,12 @@ type Props = {
 
 export default function TarefaItem({ tarefa, onEdit, onDelete }: Props) {
   
-  // Função para definir a cor da prioridade de forma profissional
   const getPriorityColor = (prio: number) => {
     switch(prio) {
-      case 1: return "#d9534f"; // Urgente (Vermelho)
-      case 2: return "#f0ad4e"; // Alta (Laranja)
-      case 3: return "#5bc0de"; // Média (Azul claro)
-      default: return "#5cb85c"; // Baixa (Verde)
+      case 1: return "#d9534f"; 
+      case 2: return "#f0ad4e"; 
+      case 3: return "#5bc0de"; 
+      default: return "#5cb85c"; 
     }
   };
 
@@ -27,13 +25,11 @@ export default function TarefaItem({ tarefa, onEdit, onDelete }: Props) {
         <Text style={styles.descricao} numberOfLines={1}>{tarefa.descricao}</Text>
         
         <View style={styles.metaData}>
-          {/* Ícone de Calendário Vetorial */}
           <View style={styles.badge}>
             <MaterialCommunityIcons name="calendar-clock" size={14} color="#636e72" />
             <Text style={styles.badgeText}>{tarefa.prazo}</Text>
           </View>
 
-          {/* Indicador de Prioridade */}
           <View style={[styles.badge, { backgroundColor: getPriorityColor(tarefa.prioridade) + '15' }]}>
             <MaterialCommunityIcons 
                 name="alert-circle-outline" 
